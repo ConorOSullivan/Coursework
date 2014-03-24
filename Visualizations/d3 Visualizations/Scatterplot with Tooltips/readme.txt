@@ -1,1 +1,1 @@
-Hi, here's a visualization I made with the movies dataset available in ggplot2. If you happen to have a Plunkr account, you may view this interactive scatterplot by hopping over to my plunker page here: http://plnkr.co/users/ConorOSullivan
+Hi, here's a visualization I made with the movies dataset available in ggplot2. It's hosted here on bl.ocks: http://bl.ocks.org/ConorOSullivan/9731852
