@@ -49,13 +49,13 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
  */ 
 
 // setup x 
-var xValue = function(d) { return d.rating;}, // data -> value
-    xScale = d3.scale.linear().range([0, width]), // value -> display
+var xValue = function(d) { return d.budget;}, // data -> value
+    xScale = d3.scale.linear().range([40, width-150]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
 // setup y
-var yValue = function(d) { return d.budget;}, // data -> value
+var yValue = function(d) { return d.rating;}, // data -> value
     yScale = d3.scale.linear().range([height, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
     yAxis = d3.svg.axis().scale(yScale).orient("left");
@@ -100,7 +100,7 @@ d3.csv("movie_budgets_for_d3_2.csv", function(error, data) {
       .attr("x", width)
       .attr("y", -6)
       .style("text-anchor", "end")
-      .text("Movie Rating");
+      .text("Movie Budget in US Dollars");
 
   // y-axis
   svg.append("g")
@@ -109,11 +109,12 @@ d3.csv("movie_budgets_for_d3_2.csv", function(error, data) {
       .call(yAxis)
     .append("text")
       .attr("class", "label")
-      .attr("transform", "rotate(-90)")
+      //.attr("transform", "rotate(-90)")
       .attr("y", 6)
+      .attr("x",70)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Movie Budget in US Dollars");
+      .text("Movie Rating");
 
   // draw dots
   svg.selectAll(".dot")
@@ -168,7 +169,7 @@ d3.csv("movie_budgets_for_d3_2.csv", function(error, data) {
         .attr("y", 0 - (margin.top / 3))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
-        .text("Scatterplot of Movie Budgets vs Movie Rating");
+        .text("Scatterplot of Movie Rating vs Movie Budget");
 });
 
 </script>
